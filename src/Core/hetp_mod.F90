@@ -772,9 +772,9 @@ subroutine mach_hetp_calca2(so4_i, nh4_i, nh3g_i, hso4_i, h_i, oh_i,            
       end if       
 !
       j = j + 1
-!      
+!
+      gmax = 0.1_dp
       if (.not. soln) then
-         gmax = 0.1_dp
          gmax = max(gmax, gama(7))
          gmax = max(gmax, gama(8))
          gmax = max(gmax, gama(9))
@@ -1505,7 +1505,6 @@ subroutine mach_hetp_calcd3(so4_i, nh4_i, hno3g_i, nh3g_i, hso4_i, h_i, no3_i,  
    pshi= gnh3
    k4  = nh4no3*2.0_dp*nh42s4 + nh4no3*nh4no3
    k5  = 2.0_dp*nh42s4 + nh4no3        
-!
 !
 !  ### STAGE 1: Root tracking ###
 !  ## Find a subinterval [xa,xb] on the larger interval [I1,I2] where a sign change occurs
@@ -9903,6 +9902,14 @@ subroutine mach_hetp_calchno3(gama10, lwn, c1, h, no3_t, no3, ghno3)
 !
    real(dp)   :: hh, bb, cc, c0
    real(dp)   :: v, dd
+!
+!  ### Initialize variables ###
+   hh = 0.0_dp
+   bb = 0.0_dp
+   cc = 0.0_dp
+   c0 = 0.0_dp
+   v  = 0.0_dp
+   dd = 0.0_dp
 
    if (lwn > tiny) then
       c0 = (lwn/gama10)*(lwn/gama10)

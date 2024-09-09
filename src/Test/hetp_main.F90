@@ -115,11 +115,49 @@ program hv_main
 ! [13] Ca++(aq)    [14] Free Ca     [15] K+(aq)     [16] Free K
 ! [17] Mg++(aq)    [18] Free Mg     [19] ALWC       [20] H+
 ! [21] OH-         [22] Case Number
-   open(unit=51, file='/.../alloutput_hv.txt', status='replace')
+   open(unit=51, file='./alloutput_hv.txt', status='replace')
    write(51, 22), so4, hso4, caso4, frso4, nh4, nh3, no3,       &
                   hno3, cl, hcl, na, frna, ca, frca, k,         &
-                  frk, mg, frmg, lwc, h, oh, case_number	
-  22         format(1x, 22(1x, e20.14))     
+                  frk, mg, frmg, lwc, h, oh, case_number
+  22         format(1x, 22(1x, e20.14))
+
+!
+!  ### Option to write inputs and outputs to terminal
+   !write(*, *), 'HETP inputs configured in HETP/src/Test/hetp_main.F90'
+   !write(*, *), '   TS   [mol/m3] = ', TS
+   !write(*, *), '   TA   [mol/m3] = ', TA
+   !write(*, *), '   TN   [mol/m3] = ', TN
+   !write(*, *), '   TNa  [mol/m3] = ', TNa
+   !write(*, *), '   TCl  [mol/m3] = ', TCl
+   !write(*, *), '   TCa  [mol/m3] = ', TCa
+   !write(*, *), '   TK   [mol/m3] = ', TK
+   !write(*, *), '   TMg  [mol/m3] = ', TMg
+   !write(*, *), '   rh   [frac]   = ', rh
+   !write(*, *), '   temp [K]      = ', temp
+   !write(*, *), ' '
+   !write(*, *), 'HETP outputs'
+   !write(*, *), '   so4   : ', so4
+   !write(*, *), '   hso4  : ', hso4
+   !write(*, *), '   caso4 : ', caso4
+   !write(*, *), '   frso4 : ', frso4
+   !write(*, *), '   nh4   : ', nh4
+   !write(*, *), '   nh3   : ', nh3
+   !write(*, *), '   no3   : ', no3
+   !write(*, *), '   hno3  : ', hno3
+   !write(*, *), '   cl    : ', cl
+   !write(*, *), '   hcl   : ', hcl
+   !write(*, *), '   na    : ', na
+   !write(*, *), '   frna  : ', frna
+   !write(*, *), '   ca    : ', ca
+   !write(*, *), '   frca  : ', frca
+   !write(*, *), '   k     : ', k
+   !write(*, *), '   frk   : ', frk
+   !write(*, *), '   mg    : ', mg
+   !write(*, *), '   frmg  : ', frmg
+   !write(*, *), '   lwc   : ', lwc
+   !write(*, *), '   h     : ', h
+   !write(*, *), '   oh    : ', oh
+   !write(*, *), '   case_number : ', case_number
 !
 stop    
 end
